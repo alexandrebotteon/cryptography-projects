@@ -158,3 +158,9 @@ def menu():
                 system('cls')
                 print('Invalid option. Please select a valid option!')
                 input('\nPress the Enter key to continue. . .')
+
+def main():
+    menu()
+
+if __name__ == '__main__':
+    main()
