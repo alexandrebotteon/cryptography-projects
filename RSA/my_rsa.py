@@ -74,3 +74,11 @@ def verify_decrypt_inputs() -> int:
             input('\nPress the Enter key to insert a new product of prime numbers. . .')
             system('cls')
             print('DECRYPTING A MESSAGE')
+
+def generate_prime_numbers() -> int:
+    while True:
+        prime_number_one = generate_prime(256)
+        prime_number_two = generate_prime(256)
+        if prime_number_one != prime_number_two:
+            break
+    return prime_number_one, prime_number_two
