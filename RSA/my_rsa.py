@@ -11,3 +11,12 @@ def encrypt(public_key: int, product_of_prime_numbers: int) -> str:
     compressed_cipher_text = compress(cipher_text_bytes)
     cipher_text = b64encode(compressed_cipher_text).decode('utf-8')
     return cipher_text
+
+def decrypt(private_key: int, product_of_prime_numbers: int) -> str:
+    message = input('Input your encrypted message: ')
+    decoded_message = b64decode(message.encode('utf-8'))
+    decompressed_data = decompress(decoded_message)
+    blocks_list = [decompressed_data[i:i+64] for i in range(0, len(decompressed_data), 64)]
+    ascii_message_list = [int.from_bytes(block, byteorder='big') for block in blocks_list]
+    decrypted_message = ''.join(chr(pow(ascii_number, private_key, product_of_prime_numbers)) for ascii_number in ascii_message_list)
+    return decrypted_message
