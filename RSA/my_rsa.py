@@ -53,3 +53,24 @@ def verify_encrypt_inputs() -> int:
             input('\nPress the Enter key to insert a new product of prime numbers. . .')
             system('cls')
             print('ENCRYPTING A MESSAGE')
+
+def verify_decrypt_inputs() -> int:
+    while True:
+        n = input('\nInput the product of prime numbers (n): ')
+        if n.isnumeric():
+            while True:
+                d = input('\nInput the private key (d): ')
+                if d.isnumeric():
+                    return int(d), int(n)
+                else:
+                    system('cls')
+                    print('Invalid private key (d)')
+                    input('\nPress the Enter key to insert a new private key. . .')
+                    system('cls')
+                    print('DECRYPTING A MESSAGE')
+        else:
+            system('cls')
+            print('Invalid product of prime numbers (n)')
+            input('\nPress the Enter key to insert a new product of prime numbers. . .')
+            system('cls')
+            print('DECRYPTING A MESSAGE')
