@@ -94,3 +94,7 @@ def generate_public_key(phi_of_n: int) -> int:
             if gcd(phi_of_n, i) == 1:
                 public_key = i
                 return public_key
+
+def generate_private_key(public_key: int, phi_of_n: int) -> int:
+    private_key = pow(public_key, -1, phi_of_n)
+    return private_key
