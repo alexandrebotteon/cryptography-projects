@@ -98,3 +98,63 @@ def generate_public_key(phi_of_n: int) -> int:
 def generate_private_key(public_key: int, phi_of_n: int) -> int:
     private_key = pow(public_key, -1, phi_of_n)
     return private_key
+
+def menu():
+    while True:
+        system('cls')
+        print('RSA ENCRYPTION AND DECRYPTION\n')
+        print('Choose an option: ')
+        print('[1] Generate new keys')
+        print('[2] Encrypt a message with existing key')
+        print('[3] Decrypt a message with existing key')
+        print('[0] Exit')
+
+        option = input('\nInsert the option here: ')
+
+        match option:
+            case '1':
+                system('cls')
+                print('GENERATE NEW KEY VALUES')
+                p, q = generate_prime_numbers()
+                n, m = generate_n_and_phi_of_n(p, q)
+                e = generate_public_key(m)
+                d = generate_private_key(e, m)
+
+                print(f'\nThe product of prime numbers (n): {n}')
+                print(f'\nYour new public key (e): {e}')
+                print(f'\nYour new private key (d): {d}')
+
+                input('\nPress the Enter key to continue. . .')
+
+            case '2':
+                system('cls')
+                print('ENCRYPTING A MESSAGE')
+                e, n = verify_encrypt_inputs()
+
+                cipher_text = encrypt(e, n)
+                print(f'\nHere is your encrypted text:\n{cipher_text}')
+
+                input('\nPress the Enter key to continue. . .')
+
+            case '3':
+                system('cls')
+                print('DECRYPTING A MESSAGE')
+                d, n = verify_decrypt_inputs()
+
+                decrypted_message = decrypt(d, n)
+                print(f'\nHere is your decrypted message:\n{decrypted_message}')
+
+                input('\nPress the Enter key to continue. . .')
+
+            case '0':
+                system('cls')
+                print('Exiting the program!')
+                print('Thanks you for using our technology. Goodbye!')
+                input('\nPress the Enter key to continue. . .')
+                system('cls')
+                break
+
+            case _:
+                system('cls')
+                print('Invalid option. Please select a valid option!')
+                input('\nPress the Enter key to continue. . .')
