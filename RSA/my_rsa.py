@@ -32,3 +32,24 @@ def verify_decrypted_message() -> str:
             input('\nPress the Enter key to insert a new message. . .')
             system('cls')
             print('ENCRYPTING A MESSAGE')
+
+def verify_encrypt_inputs() -> int:
+    while True:
+        n = input('\nInput the product of prime numbers (n): ')
+        if n.isnumeric():
+            while True:
+                e = input('\nInput the public key (e): ')
+                if e.isnumeric():
+                    return int(e), int(n)
+                else:
+                    system('cls')
+                    print('Invalid public key (e)')
+                    input('\nPress the Enter key to insert a new public key. . .')
+                    system('cls')
+                    print('ENCRYPTING A MESSAGE')
+        else:
+            system('cls')
+            print('Invalid product of prime numbers (n)')
+            input('\nPress the Enter key to insert a new product of prime numbers. . .')
+            system('cls')
+            print('ENCRYPTING A MESSAGE')
