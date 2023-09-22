@@ -87,3 +87,10 @@ def generate_n_and_phi_of_n(prime_number_one: int, prime_number_two: int) -> int
     n = prime_number_one * prime_number_two
     phi_of_n = (prime_number_one - 1) * (prime_number_two - 1)
     return n, phi_of_n
+
+def generate_public_key(phi_of_n: int) -> int:
+    for i in range(65537, phi_of_n):
+        if phi_of_n % i != 0:
+            if gcd(phi_of_n, i) == 1:
+                public_key = i
+                return public_key
