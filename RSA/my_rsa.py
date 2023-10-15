@@ -107,6 +107,11 @@ def verify_encrypt_inputs() -> int:
 
 
 def verify_decrypt_inputs() -> int:
+    """Validating the user input for the decryption keys
+
+    Returns:
+        d (int), n (int): returns the private keys
+    """
     while True:
         n = input("\nInput the product of prime numbers (n): ")
         if n.isnumeric():
