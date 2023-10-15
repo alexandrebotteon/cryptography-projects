@@ -61,6 +61,12 @@ def decrypt(private_key: int, product_of_prime_numbers: int) -> str:
 
 
 def verify_decrypted_message() -> str:
+    """Verifying the user input for encrypting a message
+
+    Returns:
+        message (str): returns the users message,
+        if it is checked correctly
+    """
     while True:
         message = input("\nInput your decrypted message: ")
         if len(message) <= 128:
