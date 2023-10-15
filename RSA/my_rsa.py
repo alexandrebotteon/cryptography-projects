@@ -6,6 +6,17 @@ from os import system
 
 
 def encrypt(public_key: int, product_of_prime_numbers: int) -> str:
+    """Encrypting the user message using RSA Encryption
+
+    Args:
+        public_key (int): a public key (e) used to encrypt
+        the message
+        product_of_prime_numbers (int): product of randomly
+        generated prime numbers (n)
+
+    Returns:
+        cipher_text (str): returns the cipher text of the message
+    """
     message = verify_decrypted_message()
     ascii_message = [ord(char) for char in message]
     cipher_text_bytes = b"".join(
