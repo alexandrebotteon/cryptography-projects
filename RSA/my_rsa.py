@@ -184,6 +184,16 @@ def generate_public_key(phi_of_n: int) -> int:
 
 
 def generate_private_key(public_key: int, phi_of_n: int) -> int:
+    """Generating the private key (d) using the
+    modular inverse algorithm
+
+    Args:
+        public_key (int): a public key (e)
+        phi_of_n (int): phi of the product of prime numbers | Φ(n)
+
+    Returns:
+        private_key (int): returns the private key (d)
+    """
     private_key = pow(public_key, -1, phi_of_n)
     return private_key
 
