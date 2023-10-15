@@ -167,7 +167,8 @@ def generate_n_and_phi_of_n(prime_number_one: int, prime_number_two: int) -> int
 
 
 def generate_public_key(phi_of_n: int) -> int:
-    """Generating the public key (e)
+    """Generating the public key (e) using
+    the Fernet prime 65537
 
     Args:
         phi_of_n (int): phi of the product of prime numbers | Φ(n)
