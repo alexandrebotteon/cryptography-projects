@@ -199,8 +199,7 @@ def generate_private_key(public_key: int, phi_of_n: int) -> int:
 
 
 def menu():
-    """Creating a interactive menu for the users
-    """
+    """Creating a interactive menu for the users"""
     while True:
         system("cls")
         print("RSA ENCRYPTION AND DECRYPTION\n")
@@ -262,9 +261,7 @@ def menu():
 
 
 def main():
-    """Executes when the file is directly
-    executed and starts running
-    """
+    """Executes when the file is directly executed and starts running"""
     menu()
 
 
