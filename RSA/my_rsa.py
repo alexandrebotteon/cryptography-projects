@@ -149,6 +149,18 @@ def generate_prime_numbers() -> int:
 
 
 def generate_n_and_phi_of_n(prime_number_one: int, prime_number_two: int) -> int:
+    """Generating the product of prime numbers and the
+    phi of them used in the RSA Encryption
+
+    Args:
+        prime_number_one (int): a first prime number
+        prime_number_two (int): a second prime number,
+        different from the first
+
+    Returns:
+        n (int), phi_of_n (int): returns both the product of
+        prime numbers and the phi of them
+    """
     n = prime_number_one * prime_number_two
     phi_of_n = (prime_number_one - 1) * (prime_number_two - 1)
     return n, phi_of_n
