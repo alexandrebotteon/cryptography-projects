@@ -80,6 +80,11 @@ def verify_decrypted_message() -> str:
 
 
 def verify_encrypt_inputs() -> int:
+    """Validating the user input for the encryption keys
+
+    Returns:
+        e (int), n (int): returns the public keys
+    """
     while True:
         n = input("\nInput the product of prime numbers (n): ")
         if n.isnumeric():
