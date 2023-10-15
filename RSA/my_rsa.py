@@ -134,6 +134,12 @@ def verify_decrypt_inputs() -> int:
 
 
 def generate_prime_numbers() -> int:
+    """Generating random prime numbers with 256 bits (2⁸ bits)
+
+    Returns:
+        prime_number_one (int), prime_number_two (int):
+        returns two randomly generated prime numbers
+    """
     while True:
         prime_number_one = generate_prime(256)
         prime_number_two = generate_prime(256)
