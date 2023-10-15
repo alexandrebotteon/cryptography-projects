@@ -167,6 +167,14 @@ def generate_n_and_phi_of_n(prime_number_one: int, prime_number_two: int) -> int
 
 
 def generate_public_key(phi_of_n: int) -> int:
+    """Generating the public key (e)
+
+    Args:
+        phi_of_n (int): phi of the product of prime numbers | Φ(n)
+
+    Returns:
+        public_key (int): returns the public key (e)
+    """
     for i in range(65537, phi_of_n):
         if phi_of_n % i != 0:
             if gcd(phi_of_n, i) == 1:
