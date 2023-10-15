@@ -33,6 +33,17 @@ def encrypt(public_key: int, product_of_prime_numbers: int) -> str:
 
 
 def decrypt(private_key: int, product_of_prime_numbers: int) -> str:
+    """Decrypting the encrypted message using RSA Encryption
+
+    Args:
+        private_key (int): a private key (d) used to decrypt
+        the message
+        product_of_prime_numbers (int): product of randomly
+        generated prime numbers (n)
+
+    Returns:
+        decrypted_message (str): returns the decrypted text of the message
+    """
     message = input("\nInput your encrypted message: ")
     decoded_message = b64decode(message.encode("utf-8"))
     decompressed_data = decompress(decoded_message)
