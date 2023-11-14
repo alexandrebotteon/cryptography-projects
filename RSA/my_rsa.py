@@ -203,7 +203,7 @@ def menu():
     while True:
         system("cls")
         print("RSA ENCRYPTION AND DECRYPTION\n")
-        print("Choose an option: ")
+        print("Choose an option:")
         print("[1] Generate new keys")
         print("[2] Encrypt a message with existing key")
         print("[3] Decrypt a message with existing key")
@@ -225,6 +225,23 @@ def menu():
                 print(f"\nYour new private key (d): {d}")
 
                 input("\nPress the Enter key to continue. . .")
+                system("cls")
+
+                print("Choose an option:")
+                print("[1] Save the key data on .txt file")
+                print("[0] Exit")
+
+                save_file = input("\nInsert the option here: ")
+
+                if save_file == 1:
+                    print("Salvar")
+                elif save_file != 0:
+                    print("Sair")
+                else:
+                    system("cls")
+                    print("Invalid option. Please select a valid option!")
+                    input("\nPress the Enter key to continue. . .")
+                
 
             case "2":
                 system("cls")
