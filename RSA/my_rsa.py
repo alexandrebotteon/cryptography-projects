@@ -273,12 +273,8 @@ def encrypt_menu():
                 input("\nPress the Enter key to continue. . .")
                 break
             except FileNotFoundError:
-                print("ENCRYPTING A MESSAGE\n")
-                print("[1] Use saved keys\n")
                 print("There are no saved keys to use!")
             except IndexError:
-                print("ENCRYPTING A MESSAGE\n")
-                print("[1] Use saved keys\n")
                 print("There are no saved keys to use!")
             except ValueError:
                 print("Invalid saved keys!")
