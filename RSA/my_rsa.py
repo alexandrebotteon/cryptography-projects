@@ -2,7 +2,7 @@ from libnum import generate_prime
 from math import gcd
 from zlib import compress, decompress
 from base64 import b64encode, b64decode
-from os import system
+from os import system, remove
 
 
 def encrypt(public_key: int, product_of_prime_numbers: int) -> str:
@@ -198,10 +198,25 @@ def generate_private_key(public_key: int, phi_of_n: int) -> int:
     return private_key
 
 
+def create_file_to_save_key(
+    product_of_prime_numbers: int, public_key: int, private_key: int
+):
+    """Generating a new .txt file (keys.txt) and saving
+    the keys in it
+
+    Args:
+        product_of_prime_numbers (int): the product of prime numbers (n)
+        public_key (int): a public key (e)
+        private_key (int): a private key (d)
+    """
+
+    with open("keys.txt", "w") as keys:
+        keys.write(f"{str(product_of_prime_numbers)}\n")
+        keys.write(f"{str(public_key)}\n")
+        keys.write(f"{str(private_key)}")
 
 
-
-def save_keys_menu():
+def save_keys_menu(product_of_prime_numbers: int, public_key: int, private_key: int):
     """Creating a interactive option menu to save a file with the key values"""
     while True:
         system("cls")
@@ -214,7 +229,8 @@ def save_keys_menu():
 
         if save_file == "1":
             system("cls")
-            print("Save function")
+            create_file_to_save_key(product_of_prime_numbers, public_key, private_key)
+            print("Keys are saved with success!")
             input("\nPress the Enter key to continue. . .")
             break
         elif save_file == "2":
@@ -256,7 +272,7 @@ def menu():
 
                 input("\nPress the Enter key to continue. . .")
 
-                save_keys_menu()
+                save_keys_menu(n, e, d)
 
             case "2":
                 system("cls")
@@ -280,11 +296,14 @@ def menu():
 
             case "0":
                 system("cls")
-                print("Exiting the program!")
-                print("Thanks you for using our technology. Goodbye!")
-                input("\nPress the Enter key to continue. . .")
-                system("cls")
-                break
+                try:
+                    remove("keys.txt")
+                finally:
+                    print("Exiting the program!")
+                    print("Thanks you for using our technology. Goodbye!")
+                    input("\nPress the Enter key to continue. . .")
+                    system("cls")
+                    break
 
             case _:
                 system("cls")
