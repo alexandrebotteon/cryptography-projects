@@ -225,23 +225,30 @@ def menu():
                 print(f"\nYour new private key (d): {d}")
 
                 input("\nPress the Enter key to continue. . .")
-                system("cls")
 
-                print("Choose an option:")
-                print("[1] Save the key data on .txt file")
-                print("[0] Exit")
-
-                save_file = input("\nInsert the option here: ")
-
-                if save_file == 1:
-                    print("Salvar")
-                elif save_file != 0:
-                    print("Sair")
-                else:
+                while True:
                     system("cls")
-                    print("Invalid option. Please select a valid option!")
-                    input("\nPress the Enter key to continue. . .")
-                
+                    print("SAVING THE FILE\n")
+                    print("Choose an option:")
+                    print("[1] Save the key data on .txt file")
+                    print("[2] Back to main menu")
+
+                    save_file = input("\nInsert the option here: ")
+
+                    if save_file == "1":
+                        system("cls")
+                        print("Save function")
+                        input("\nPress the Enter key to continue. . .")
+                        break
+                    elif save_file == "2":
+                        system("cls")
+                        print("Returning to the main menu!")
+                        input("\nPress the Enter key to continue. . .")
+                        break
+                    else:
+                        system("cls")
+                        print("Invalid option. Please select a valid option!")
+                        input("\nPress the Enter key to continue. . .")
 
             case "2":
                 system("cls")
