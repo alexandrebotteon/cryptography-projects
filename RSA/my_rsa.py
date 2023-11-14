@@ -225,15 +225,77 @@ def save_keys_menu(product_of_prime_numbers: int, public_key: int, private_key: 
         print("[1] Save the keys")
         print("[2] Back to main menu")
 
-        save_file = input("\nInsert the option here: ")
+        save_file_option = input("\nInsert the option here: ")
 
-        if save_file == "1":
+        if save_file_option == "1":
             system("cls")
             create_file_to_save_key(product_of_prime_numbers, public_key, private_key)
             print("Keys are saved with success!")
             input("\nPress the Enter key to continue. . .")
             break
-        elif save_file == "2":
+        elif save_file_option == "2":
+            system("cls")
+            print("Returning to the main menu!")
+            input("\nPress the Enter key to continue. . .")
+            break
+        else:
+            system("cls")
+            print("Invalid option. Please select a valid option!")
+            input("\nPress the Enter key to continue. . .")
+
+
+def encrypt_menu():
+    """Creating a interactive option menu to save a file with the key values"""
+    while True:
+        system("cls")
+        print("ENCRYPTING A MESSAGE\n")
+        print("Choose an option:")
+        print("[1] Use saved keys")
+        print("[2] Enter your own keys")
+        print("[3] Back to main menu")
+
+        encrypt_option = input("\nInsert the option here: ")
+
+        if encrypt_option == "1":
+            system("cls")
+            try:
+                with open("keys.txt", "r") as keys:
+                    lines = keys.readlines()
+                    n = lines[0]
+                    e = lines[1]
+
+                print("ENCRYPTING A MESSAGE\n")
+                print("[1] Use saved keys\n")
+
+                cipher_text = encrypt(int(e), int(n))
+                print(f"\nHere is your encrypted text:\n{cipher_text}")
+
+                input("\nPress the Enter key to continue. . .")
+                break
+            except FileNotFoundError:
+                print("ENCRYPTING A MESSAGE\n")
+                print("[1] Use saved keys\n")
+                print("There are no saved keys to use!")
+            except IndexError:
+                print("ENCRYPTING A MESSAGE\n")
+                print("[1] Use saved keys\n")
+                print("There are no saved keys to use!")
+            except ValueError:
+                print("Invalid saved keys!")
+
+            input("\nPress the Enter key to continue. . .")
+        elif encrypt_option == "2":
+            system("cls")
+            print("ENCRYPTING A MESSAGE\n")
+            print("[2] Enter your own keys\n")
+            e, n = verify_encrypt_inputs()
+
+            cipher_text = encrypt(e, n)
+            print(f"\nHere is your encrypted text:\n{cipher_text}")
+
+            input("\nPress the Enter key to continue. . .")
+            break
+        elif encrypt_option == "3":
             system("cls")
             print("Returning to the main menu!")
             input("\nPress the Enter key to continue. . .")
@@ -276,13 +338,7 @@ def menu():
 
             case "2":
                 system("cls")
-                print("ENCRYPTING A MESSAGE")
-                e, n = verify_encrypt_inputs()
-
-                cipher_text = encrypt(e, n)
-                print(f"\nHere is your encrypted text:\n{cipher_text}")
-
-                input("\nPress the Enter key to continue. . .")
+                encrypt_menu()
 
             case "3":
                 system("cls")
