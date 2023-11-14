@@ -222,7 +222,7 @@ def save_keys_menu(product_of_prime_numbers: int, public_key: int, private_key: 
         system("cls")
         print("SAVING THE FILE\n")
         print("Choose an option:")
-        print("[1] Save the key data on .txt file")
+        print("[1] Save the keys")
         print("[2] Back to main menu")
 
         save_file = input("\nInsert the option here: ")
