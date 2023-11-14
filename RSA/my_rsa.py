@@ -198,6 +198,36 @@ def generate_private_key(public_key: int, phi_of_n: int) -> int:
     return private_key
 
 
+
+
+
+def save_keys_menu():
+    """Creating a interactive option menu to save a file with the key values"""
+    while True:
+        system("cls")
+        print("SAVING THE FILE\n")
+        print("Choose an option:")
+        print("[1] Save the key data on .txt file")
+        print("[2] Back to main menu")
+
+        save_file = input("\nInsert the option here: ")
+
+        if save_file == "1":
+            system("cls")
+            print("Save function")
+            input("\nPress the Enter key to continue. . .")
+            break
+        elif save_file == "2":
+            system("cls")
+            print("Returning to the main menu!")
+            input("\nPress the Enter key to continue. . .")
+            break
+        else:
+            system("cls")
+            print("Invalid option. Please select a valid option!")
+            input("\nPress the Enter key to continue. . .")
+
+
 def menu():
     """Creating a interactive menu for the users"""
     while True:
@@ -226,29 +256,7 @@ def menu():
 
                 input("\nPress the Enter key to continue. . .")
 
-                while True:
-                    system("cls")
-                    print("SAVING THE FILE\n")
-                    print("Choose an option:")
-                    print("[1] Save the key data on .txt file")
-                    print("[2] Back to main menu")
-
-                    save_file = input("\nInsert the option here: ")
-
-                    if save_file == "1":
-                        system("cls")
-                        print("Save function")
-                        input("\nPress the Enter key to continue. . .")
-                        break
-                    elif save_file == "2":
-                        system("cls")
-                        print("Returning to the main menu!")
-                        input("\nPress the Enter key to continue. . .")
-                        break
-                    else:
-                        system("cls")
-                        print("Invalid option. Please select a valid option!")
-                        input("\nPress the Enter key to continue. . .")
+                save_keys_menu()
 
             case "2":
                 system("cls")
