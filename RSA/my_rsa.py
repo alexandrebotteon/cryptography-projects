@@ -245,7 +245,7 @@ def save_keys_menu(product_of_prime_numbers: int, public_key: int, private_key: 
 
 
 def encrypt_menu():
-    """Creating a interactive option menu to save a file with the key values"""
+    """Creating a interactive option menu to encrypt a message"""
     while True:
         system("cls")
         print("ENCRYPTING A MESSAGE\n")
@@ -303,6 +303,7 @@ def encrypt_menu():
 
 
 def decrypt_menu():
+    """Creating a interactive option menu to decrypt a message"""
     while True:
         system("cls")
         print("DECRYPTING A MESSAGE\n")
