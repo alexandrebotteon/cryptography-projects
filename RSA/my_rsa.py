@@ -260,7 +260,7 @@ def encrypt_menu():
             system("cls")
             try:
                 print("ENCRYPTING A MESSAGE\n")
-                print("[1] Use saved keys\n")
+                print("[1] Use saved keys")
 
                 with open("keys.txt", "r") as keys:
                     lines = keys.readlines()
@@ -283,7 +283,7 @@ def encrypt_menu():
         elif encrypt_option == "2":
             system("cls")
             print("ENCRYPTING A MESSAGE\n")
-            print("[2] Enter your own keys\n")
+            print("[2] Enter your own keys")
             e, n = verify_encrypt_inputs()
 
             cipher_text = encrypt(e, n)
@@ -292,6 +292,63 @@ def encrypt_menu():
             input("\nPress the Enter key to continue. . .")
             break
         elif encrypt_option == "3":
+            system("cls")
+            print("Returning to the main menu!")
+            input("\nPress the Enter key to continue. . .")
+            break
+        else:
+            system("cls")
+            print("Invalid option. Please select a valid option!")
+            input("\nPress the Enter key to continue. . .")
+
+
+def decrypt_menu():
+    while True:
+        system("cls")
+        print("DECRYPTING A MESSAGE\n")
+        print("Choose an option:")
+        print("[1] Use saved keys")
+        print("[2] Enter your own keys")
+        print("[3] Back to main menu")
+
+        decrypt_option = input("\nInsert the option here: ")
+
+        if decrypt_option == "1":
+            system("cls")
+            try:
+                print("DECRYPTING A MESSAGE\n")
+                print("[1] Use saved keys")
+
+                with open("keys.txt", "r") as keys:
+                    lines = keys.readlines()
+                    n = lines[0]
+                    d = lines[2]
+
+                decrypted_message = decrypt(int(d), int(n))
+                print(f"\nHere is your decrypted message:\n{decrypted_message}")
+
+                input("\nPress the Enter key to continue. . .")
+                break
+            except FileNotFoundError:
+                print("There are no saved keys to use!")
+            except IndexError:
+                print("There are no saved keys to use!")
+            except ValueError:
+                print("Invalid saved keys!")
+
+            input("\nPress the Enter key to continue. . .")
+        elif decrypt_option == "2":
+            system("cls")
+            print("DECRYPTING A MESSAGE\n")
+            print("[2] Enter your own keys")
+            d, n = verify_decrypt_inputs()
+
+            decrypted_message = decrypt(d, n)
+            print(f"\nHere is your decrypted message:\n{decrypted_message}")
+
+            input("\nPress the Enter key to continue. . .")
+            break
+        elif decrypt_option == "3":
             system("cls")
             print("Returning to the main menu!")
             input("\nPress the Enter key to continue. . .")
@@ -338,13 +395,7 @@ def menu():
 
             case "3":
                 system("cls")
-                print("DECRYPTING A MESSAGE")
-                d, n = verify_decrypt_inputs()
-
-                decrypted_message = decrypt(d, n)
-                print(f"\nHere is your decrypted message:\n{decrypted_message}")
-
-                input("\nPress the Enter key to continue. . .")
+                decrypt_menu()
 
             case "0":
                 system("cls")
