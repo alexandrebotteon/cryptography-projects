@@ -259,13 +259,13 @@ def encrypt_menu():
         if encrypt_option == "1":
             system("cls")
             try:
+                print("ENCRYPTING A MESSAGE\n")
+                print("[1] Use saved keys\n")
+
                 with open("keys.txt", "r") as keys:
                     lines = keys.readlines()
                     n = lines[0]
                     e = lines[1]
-
-                print("ENCRYPTING A MESSAGE\n")
-                print("[1] Use saved keys\n")
 
                 cipher_text = encrypt(int(e), int(n))
                 print(f"\nHere is your encrypted text:\n{cipher_text}")
